@@ -25,10 +25,10 @@ function App() {
                             <Route exact path='/login' element={<Login />} />
                         </Route>
                         <Route exact path='/' element={<PrivateRoute />}>
-                            <Route exact path='/Quiz' element={<Quiz />} />
+                            <Route exact path='/Quiz/:Id' element={<Quiz />} />
                         </Route>
                         <Route exact path='/' element={<PrivateRoute />}>
-                            <Route exact path='/result' element={<Result />} />
+                            <Route exact path='/result/:Id' element={<Result />} />
                         </Route>
                     </Routes>
                 </Layout>
