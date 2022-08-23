@@ -1,6 +1,6 @@
 import _ from 'lodash'
 import { useEffect, useReducer, useState } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate, /*useLocation*/ } from 'react-router-dom'
 import useQuizList from '../../hooks/useQuizList'
 import Answers from '../Answers'
 import MiniPlayer from '../MiniPlayer'
@@ -37,7 +37,9 @@ export default function Quiz() {
 
     const [qna, dispatch] = useReducer(reducer, intialState)
     const {currentUser} = useAuth();
-    const history = useNavigate()
+    const history = useNavigate();
+    // const {state} = useLocation();
+    // const {videoTitle} = state
 
     useEffect(() => {
         dispatch({
@@ -102,7 +104,7 @@ export default function Quiz() {
                     <h4>Question can have multiple answers</h4>
                     <Answers input={true} options={qna[currentQuestion].options} handleChange={handleAnswerChange} />
                     <ProgressBar next={nextQuestion} prev={prevQuestion} progress={percentage} submit={submit}/>
-                    <MiniPlayer />
+                    <MiniPlayer id={Id} title={/*videoTitle*/''} />
                 </>
             )}
         </>
